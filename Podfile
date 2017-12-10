@@ -4,8 +4,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
 
-target 'BasicFramework' do
-    pod 'Alamofire', '~> 4.5.1'
+target 'NMBasic' do
+    pod 'Alamofire', '~> 4.6.0'
     pod 'SwiftyJSON', '~> 4.0.0'
     pod 'libPhoneNumber-iOS', '~> 0.9.12'
     pod 'AlamofireImage', '~> 3.3.0'
