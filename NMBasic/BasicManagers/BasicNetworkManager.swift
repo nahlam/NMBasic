@@ -1,6 +1,6 @@
 //
 //  BasicNetworkManager.swift
-//  NMBasic
+//  BasicFramework
 //
 //  Created by Nahla Mortada on 7/5/17.
 //  Copyright © 2017 Nahla Mortada. All rights reserved.
@@ -12,6 +12,7 @@ import Alamofire
 import SBJson4
 import SwiftyJSON
 import Reachability
+
 
 public typealias APIRequestCompletionHandlerClosureType = (_ requestURL:String ,_ response: JSON?,_ error: Error?) -> Void
 public typealias APIFileUploadClosureType = (_ requestURL:String,_ response: JSON? ,_ success: Bool) -> Void
@@ -57,123 +58,174 @@ open class BasicNetworkManager: BasicManager {
         return networkStatus != 0
     }
     
-    open class func getRequestWithURL(stringURL: String, method: HTTPMethod, params: [String : AnyObject]?, hmac: String, appVersion: String,  deviceId: String, handler: @escaping APIRequestCompletionHandlerClosureType) -> Request    {
+    
+    
+    open class func getRequestJSONContentWithLengthWithURL(stringURL: String, method: HTTPMethod, params: [String : AnyObject]?, deviceId: String, appVersion: String?, sendBasicParameters: Bool, handler: @escaping APIRequestCompletionHandlerClosureType) -> Request    {
+        return self.getBasicRequestWithURL(stringURL: stringURL, method: method, params: params, deviceId: deviceId, hmac: nil, appVersion: appVersion, isJSONContentType: true, sendContentLength: true, handler: handler)
+    }
+    
+    
+    open class func getRequestJSONContentWithURL(stringURL: String, method: HTTPMethod, params: [String : AnyObject]?, deviceId: String, appVersion: String?, sendBasicParameters: Bool, handler: @escaping APIRequestCompletionHandlerClosureType) -> Request    {
+        return self.getBasicRequestWithURL(stringURL: stringURL, method: method, params: params, deviceId: deviceId, hmac: nil, appVersion: appVersion, isJSONContentType: true, handler: handler)
+    }
+    
+    open class func getRequestWithURL(stringURL: String, method: HTTPMethod, params: [String : AnyObject]?, deviceId: String, appVersion: String? = nil, handler: @escaping APIRequestCompletionHandlerClosureType) -> Request    {
+        return self.getBasicRequestWithURL(stringURL: stringURL, method: method, params: params, deviceId: deviceId, hmac: nil, appVersion: appVersion, handler: handler)
+    }
+    
+    open class func getBasicRequestWithURL(stringURL: String, method: HTTPMethod, params: [String : AnyObject]?, handler: @escaping APIRequestCompletionHandlerClosureType) -> Request    {
+        return self.getBasicRequestWithURL(stringURL: stringURL, method: method, params: params, headers: nil, handler: handler)
+    }
+    
+    
+    open class func getBasicRequestWithURL(stringURL: String, method: HTTPMethod, params: [String : AnyObject]?, deviceId: String, hmac: String?, appVersion: String?, isJSONContentType: Bool = false, sendContentLength: Bool = false, handler: @escaping APIRequestCompletionHandlerClosureType) -> Request    {
         
-        let timeStamp: String = self.getTimeStamp()
-        print("Date -> \(Date()) , Time: \(timeStamp)")
-        var requestParams: [String: AnyObject] = [String : AnyObject]()
-        if params != nil {
-            requestParams = params!
+        var headers : HTTPHeaders = [BasicNetworkManager.Contants.Request.Header.Key.Device : deviceId]
+        
+        if appVersion != nil {
+            headers[BasicNetworkManager.Contants.Request.Header.Key.Version] = appVersion!
+        }
+        if hmac != nil {
+            headers[BasicNetworkManager.Contants.Request.Header.Key.Authorization] = hmac!
         }
         
-        let jsonWriter: SBJson4Writer = SBJson4Writer()
-        let bodyString: String = jsonWriter.string(with: requestParams)
-        
-        let length: Int = bodyString.count
-        let contentLength :String = "\(length)"
-        let headers : HTTPHeaders = [BasicNetworkManager.Contants.Request.Header.Key.Authorization : hmac,
-                                     BasicNetworkManager.Contants.Request.Header.Key.ContentLength : contentLength,
-                                     BasicNetworkManager.Contants.Request.Header.Key.ContentType: BasicNetworkManager.Contants.Request.Header.Value.JSON,
-                                     BasicNetworkManager.Contants.Request.Header.Key.Device : deviceId,
-                                     BasicNetworkManager.Contants.Request.Header.Key.Version: appVersion]
-        
-        if requestParams.count > 1 {
-            requestParams.updateValue(bodyString as AnyObject, forKey: BasicNetworkManager.Contants.Request.Payload)
+        if isJSONContentType {
+            headers[BasicNetworkManager.Contants.Request.Header.Key.ContentType] = BasicNetworkManager.Contants.Request.Header.Value.JSON
         }
+        
+        if sendContentLength {
+            let timeStamp: String = self.getTimeStamp()
+            print("Date -> \(Date()) , Time: \(timeStamp)")
+            var requestParams: [String: AnyObject] = [String : AnyObject]()
+            if params != nil {
+                requestParams = params!
+            }
+            
+            let jsonWriter: SBJson4Writer = SBJson4Writer()
+            let bodyString: String = jsonWriter.string(with: requestParams)
+            
+            let length: Int = bodyString.count
+            let contentLength :String = "\(length)"
+            headers[BasicNetworkManager.Contants.Request.Header.Key.ContentLength] = contentLength
+        }
+        
+        return self.getBasicRequestWithURL(stringURL: stringURL, method: method, params: params, headers: headers, handler: handler)
+    }
+    
+    
+    open class func getBasicRequestWithURL(stringURL: String, method: HTTPMethod, params: [String : AnyObject]?, headers : HTTPHeaders?, handler: @escaping APIRequestCompletionHandlerClosureType) -> Request    {
         
         let sessionManager = NMSessionManager.sharedManager
-        let request: Request = sessionManager.request(stringURL, method: method, parameters: requestParams, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+        let request: Request = sessionManager.request(stringURL, method: method, parameters: params, encoding: (method == HTTPMethod.get) ? URLEncoding.default : JSONEncoding.default , headers: headers).responseJSON { (response) in
             
             DispatchQueue.global(qos: .background).async {
-                
-                let url = response.request?.url?.absoluteString
-                let requestURL:String = url == nil ? "" : url!
-                
-                
                 switch response.result {
                 case .success:
                     let value = response.result.value as? [String: AnyObject]
-                    
-                    #if DEBUG
-                        print("*****************************************")
-                        print("Request: \(String(describing: url))")
-                        print("HMAC: \(hmac)")
-                        print("JSON Body: \(bodyString)")
-                        print("*****************************************")
-                        print("VALUE : \(String(describing: value))")
-                        print("*****************************************")
-                    #endif
-
-                    if let returnValue = value![BasicNetworkManager.Contants.Response.ReponseJSON] {
-                        let jsonValue:JSON = JSON(returnValue)
-                        
-                        if jsonValue.type == .null || jsonValue.type == .unknown {
-                            print("Response : GENERAL ERROR")
-                            DispatchQueue.main.async {
-                                handler(requestURL, nil, getGeneralError())
-                            }
-                        }else {
-                            #if DEBUG
-                                print("#########################################")
-                                print("Response : \(jsonValue)")
-                                print("#########################################")
-                            #endif
-                            DispatchQueue.main.async {
-                                handler(requestURL, jsonValue, nil)
-                            }
-                        }
-                        
-                    }else if value![BasicNetworkManager.Contants.Response.Error] != nil {
-                        
-                        let errorJSON:JSON = JSON(value![BasicNetworkManager.Contants.Response.Error]!)
-                        if errorJSON.type == .null || errorJSON.type == .unknown {
-                            #if DEBUG
-                                print("Response : GENERAL ERROR")
-                            #endif
-                            DispatchQueue.main.async {
-                                handler(requestURL, nil, getGeneralError())
-                            }
-                        }else {
-                            
-                            let error:Error = self.getErrorFromDictionary(errorDict: errorJSON)
-                            print("#########################################")
-                            print("Response : \(errorJSON)")
-                            print("#########################################")
-                            
-                            DispatchQueue.main.async {
-                                handler(requestURL, nil, error)
-                            }
-                        }
-                    }else   {
-                        #if DEBUG
-                            print("Response : GENERAL ERROR")
-                        #endif
-                        DispatchQueue.main.async {
-                            handler(requestURL, nil, getGeneralError())
-                        }
-                    }
-                    
-                    
+                    self.handleSuccessResponse(requestURL: stringURL, request: response.request, response: value, handler: handler)
                     return
                 case .failure(let error):
-                    #if DEBUG
-                        print("#########################################")
-                        print("Response : Error while fetching remote rooms: \(error)")
-                         print("#########################################")
-                    #endif
-                    
-                    
-                    DispatchQueue.main.async {
-                        handler(requestURL, nil, error)
-                    }
-                    
+                    self.handleFailureResponse(requestURL: stringURL, request: response.request, error: error, handler: handler)
                     return
                 }
             }
         }
         return request
     }
-
+    
+    
+    
+    private class func getStringFromParamters(params: [String : AnyObject])  -> String {
+        
+        let parameterArray = params.map { key, value -> String in
+            let percentEscapedKey = key.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+            let percentEscapedValue = (value as! String).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+            return "\(percentEscapedKey)=\(percentEscapedValue)"
+        }
+        
+        return parameterArray.joined(separator: "&")
+    }
+    
+    private class func handleSuccessResponse(requestURL:String, request: URLRequest?, response: [String: AnyObject]? , handler: @escaping APIRequestCompletionHandlerClosureType) {
+        
+        
+        
+        #if DEBUG
+            print("*****************************************")
+            if request != nil {
+                print("Request: \(request!)")
+            }else {
+                print("Request URL: \(requestURL)")
+            }
+            print("*****************************************")
+            print("VALUE : \(String(describing: response))")
+            print("*****************************************")
+        #endif
+        
+        if let returnValue = response![BasicNetworkManager.Contants.Response.ReponseJSON] {
+            let jsonValue:JSON = JSON(returnValue)
+            
+            if jsonValue.type == .null || jsonValue.type == .unknown {
+                print("Response : GENERAL ERROR")
+                DispatchQueue.main.async {
+                    handler(requestURL, nil, getGeneralError())
+                }
+            }else {
+                #if DEBUG
+                    print("#########################################")
+                    print("Response : \(jsonValue)")
+                    print("#########################################")
+                #endif
+                DispatchQueue.main.async {
+                    handler(requestURL, jsonValue, nil)
+                }
+            }
+            
+        }else if response![BasicNetworkManager.Contants.Response.Error] != nil {
+            
+            let errorJSON:JSON = JSON(response![BasicNetworkManager.Contants.Response.Error]!)
+            if errorJSON.type == .null || errorJSON.type == .unknown {
+                #if DEBUG
+                    print("Response : GENERAL ERROR")
+                #endif
+                DispatchQueue.main.async {
+                    handler(requestURL, nil, getGeneralError())
+                }
+            }else {
+                
+                let error:Error = self.getErrorFromDictionary(errorDict: errorJSON)
+                print("#########################################")
+                print("Response : \(errorJSON)")
+                print("#########################################")
+                
+                DispatchQueue.main.async {
+                    handler(requestURL, nil, error)
+                }
+            }
+        }else   {
+            #if DEBUG
+                print("Response : GENERAL ERROR")
+            #endif
+            DispatchQueue.main.async {
+                handler(requestURL, nil, getGeneralError())
+            }
+        }
+        
+    }
+    
+    private class func handleFailureResponse(requestURL:String, request: URLRequest?, error: Error? , handler: @escaping APIRequestCompletionHandlerClosureType) {
+        #if DEBUG
+            print("#########################################")
+            print("Error Response: \(error?.localizedDescription ?? "")")
+            print("#########################################")
+        #endif
+        
+        DispatchQueue.main.async {
+            handler(requestURL, nil, error)
+        }
+    }
+    
+    
     open class func uploadData(urlString: String, parameters: [String: AnyObject], data:[(data: Data,name: String,mime: String)], handler: @escaping APIFileUploadClosureType) {
         
         Alamofire.upload(

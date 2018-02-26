@@ -12,8 +12,8 @@ import UIKit
 public class NMBasicManager: NSObject {
     
     public struct ImagesNames {
-        static let NormalBackImage                      = "Basic-NavBarBack"
-        static let NormalCloseImage                     = "Basic-NavBarClose"
+        static let NormalBackImage                  = "Basic-NavBarBack"
+        static let NormalCloseImage                 = "Basic-NavBarClose"
     }
     
     public struct Strings   {
@@ -22,6 +22,7 @@ public class NMBasicManager: NSObject {
         static let BackButtonAccessibilityHint      = "BASIC-back-button-hint"
         
         static let Okay                             = "BASIC-ok"
+        static let Done                             = "BASIC-done"
         static let Cancel                           = "BASIC-cancel"
         
         static let Yes                              = "BASIC-yes"
@@ -30,6 +31,13 @@ public class NMBasicManager: NSObject {
         public struct Error {
             static let Error                        = "BASIC-error"
             static let OpenURLError                 = "BASIC-open-url-error"
+            static let SMSError                     = "BASIC-send-sms-error"
+        }
+        
+        public struct Location  {
+            static let LocationPickerTitle          = "BASIC-Location-picker-title"
+            static let LocationChooseHint           = "BASIC-Location-choose-hint"
+            static let LocationStringPrefix         = "BASIC-Location-string-prefix"
         }
     }
     

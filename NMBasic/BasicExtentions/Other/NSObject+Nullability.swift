@@ -1,6 +1,6 @@
 //
 //  NSObject+Nullability.swift
-//  NMBasic
+//  BasicFramework
 //
 //  Created by Nahla Mortada on 7/9/17.
 //  Copyright © 2017 Nahla Mortada. All rights reserved.
@@ -14,7 +14,7 @@ public extension NSObject  {
         guard let object = object else {
             return false
         }
-        return (isNotNSNull(object) && isNotStringNull(object: object))
+        return (isNotNSNull(object: object) && isNotStringNull(object: object))
     }
     
     public class func isNotNSNull(_ object:Any) -> Bool {

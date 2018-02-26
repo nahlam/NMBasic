@@ -1,6 +1,6 @@
 //
 //  UIProgressView.swift
-//  NMBasic
+//  BasicFramework
 //
 //  Created by Nahla Mortada on 12/3/17.
 //  Copyright © 2017 Nahla Mortada. All rights reserved.

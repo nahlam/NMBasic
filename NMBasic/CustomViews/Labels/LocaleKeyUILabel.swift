@@ -1,6 +1,6 @@
 //
 //  LocaleKeyUILabel.swift
-//  NMBasic
+//  BasicFramework
 //
 //  Created by Nahla Mortada on 10/25/17.
 //  Copyright © 2017 Nahla Mortada. All rights reserved.

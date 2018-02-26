@@ -1,15 +1,15 @@
 //
-//  NMSessionManager.swift
-//  NMBasic
+//  IBSessionManager.swift
+//  Q8ForSale
 //
-//  Created by Nahla Mortada on 12/10/17.
-//  Copyright © 2017 Nahla Mortada. All rights reserved.
+//  Created by Nahla Mortada on 1/24/17.
+//  Copyright © 2017 Technivance. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-class NMSessionManager: Alamofire.SessionManager {
+open class NMSessionManager: Alamofire.SessionManager {
     
     public static let sharedManager: NMSessionManager = {
         let configuration = URLSessionConfiguration.default
@@ -19,4 +19,3 @@ class NMSessionManager: Alamofire.SessionManager {
     }()
     
 }
-

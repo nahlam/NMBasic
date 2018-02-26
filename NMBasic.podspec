@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "NMBasic"
-    s.version      = "1.0.2"
+    s.version      = "1.1.0"
     s.summary      = "Managing All Basic Features Like Basic Object, Basic Manager, Basic Network Manager and Basic DB Manager"
     s.homepage     = "https://github.com/nahlam/NMBasic"
     s.description  = "Managing All Basic Features Like Basic Object, Basic Manager, Basic Network Manager and Basic DB Manager. Add All needed functiona;ity to setup our organization projects."
@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = "9.0"
     s.source   = { :git => "https://github.com/nahlam/NMBasic.git", :tag => s.version }
     s.source_files = "NMBasic/*.swift"
+    s.resources = "NMBasic/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
     s.pod_target_xcconfig =  {
     'SWIFT_VERSION' => '3.0',
     }
@@ -54,16 +55,30 @@ Pod::Spec.new do |s|
         ss.ios.frameworks = 'Foundation'
         ss.ios.frameworks = 'UIKit'
 
-        ss.dependency 'Alamofire', '~> 4.4'
+        ss.dependency 'Alamofire', '~> 4.5.1'
         ss.dependency 'SwiftyJSON', '~> 4.0.0'
         ss.dependency 'AlamofireImage', '~> 3.3.0'
         ss.dependency 'GeneralLocalization', '~> 1.0.0'
         ss.dependency 'Reachability', '~> 3.2'
         ss.dependency 'SBJson4', '~> 4.0.5'
         ss.dependency 'FMDB', '~> 2.7.2'
+        ss.dependency 'MRProgress', '~> 0.8.3'
 
         ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PROJECT_DIR)/NMBasic/Frameworks' }
     end
+
+    s.subspec 'Location' do |ss|
+        ss.source_files = 'NMBasic/Modules/Location/*.swift'
+
+        ss.ios.frameworks = 'Foundation'
+        ss.ios.frameworks = 'UIKit'
+        ss.ios.frameworks = 'CoreLocation'
+        ss.ios.frameworks = 'MapKit'
+        s.resources = "NMBasic/Modules/Location/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
+        s.resource_bundles = {
+            'BFLocationBundle' => ['NMBasic/Modules/Location/*.{storyboard,xcassets}']
+        }
+        end
 
 
     s.subspec 'BasicUIControllers' do |ss|
