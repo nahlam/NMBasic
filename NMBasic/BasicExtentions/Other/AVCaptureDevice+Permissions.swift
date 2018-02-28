@@ -13,7 +13,7 @@ extension AVCaptureDevice   {
     
     public class func canAccessCamera() -> Bool {
         
-        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         
         if status == AVAuthorizationStatus.authorized {
             return true
@@ -23,9 +23,9 @@ extension AVCaptureDevice   {
     
     public class func requestAccessCamera(handler: ((Bool) -> Swift.Void)!) {
         
-        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         if status == AVAuthorizationStatus.notDetermined {
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted) in
+            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted) in
                 handler(granted)
             })
         }else {

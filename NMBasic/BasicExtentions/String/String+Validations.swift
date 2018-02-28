@@ -85,7 +85,8 @@ public extension String    {
             maxString = self
         }else {
             let index = self.index(self.startIndex, offsetBy: 100)
-            maxString = self.substring(to: index)
+            //maxString = self.substring(to: index)
+            maxString = String(self[..<index])
         }
         return maxString
     }

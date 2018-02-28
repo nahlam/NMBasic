@@ -111,7 +111,7 @@ open class LocationPickerViewController: BasicUIViewController, MKMapViewDelegat
     }
     
     
-    func didDragMap(_ gestureRecognizer: UIGestureRecognizer) {
+    @objc func didDragMap(_ gestureRecognizer: UIGestureRecognizer) {
         if gestureRecognizer.state == .ended {
             locationChanged()
         }

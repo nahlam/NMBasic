@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "NMBasic"
-    s.version      = "1.1.1"
+    s.version      = "1.1.2"
     s.summary      = "Managing All Basic Features Like Basic Object, Basic Manager, Basic Network Manager and Basic DB Manager"
     s.homepage     = "https://github.com/nahlam/NMBasic"
     s.description  = "Managing All Basic Features Like Basic Object, Basic Manager, Basic Network Manager and Basic DB Manager. Add All needed functiona;ity to setup our organization projects."
@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "9.0"
     s.ios.deployment_target = "9.0"
     s.source   = { :git => "https://github.com/nahlam/NMBasic.git", :tag => s.version }
-    s.source_files = "NMBasic/*.swift"
+    s.source_files = "NMBasic/*"
     s.resources = "NMBasic/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
     s.pod_target_xcconfig =  {
-    'SWIFT_VERSION' => '3.0',
+    'SWIFT_VERSION' => '4.0',
     }
 
     s.requires_arc = true

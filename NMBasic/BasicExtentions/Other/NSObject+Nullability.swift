@@ -14,7 +14,7 @@ public extension NSObject  {
         guard let object = object else {
             return false
         }
-        return (isNotNSNull(object: object) && isNotStringNull(object: object))
+        return (isNotNSNull(object) && isNotStringNull(object))
     }
     
     public class func isNotNSNull(_ object:Any) -> Bool {

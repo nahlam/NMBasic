@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		16382FE626FED53481E35AD8 /* Pods_NMBasic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6AC55704882CC024853792 /* Pods_NMBasic.framework */; };
-		980BF1CC1FDD280E00C760B9 /* NMBasic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980BF1C21FDD280E00C760B9 /* NMBasic.framework */; };
-		980BF1D11FDD280E00C760B9 /* NMBasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980BF1D01FDD280E00C760B9 /* NMBasicTests.swift */; };
 		980BF1D31FDD280E00C760B9 /* NMBasic.h in Headers */ = {isa = PBXBuildFile; fileRef = 980BF1C51FDD280E00C760B9 /* NMBasic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9844EFFB20444F9F000AB55D /* BasicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9844EF6D20444F9E000AB55D /* BasicManager.swift */; };
 		9844EFFC20444F9F000AB55D /* BasicNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9844EF6E20444F9E000AB55D /* BasicNetworkManager.swift */; };
@@ -128,25 +126,13 @@
 		9844F06D20444F9F000AB55D /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9844EFFA20444F9F000AB55D /* LocationPickerViewController.swift */; };
 		98B7122D1FDD29F0005E0659 /* NMBasic-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B7117E1FDD29F0005E0659 /* NMBasic-Bridging-Header.h */; };
 		98B712341FDD29F0005E0659 /* NMBasicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B711831FDD29F0005E0659 /* NMBasicManager.swift */; };
-		98B712351FDD29F0005E0659 /* NMBasicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B711831FDD29F0005E0659 /* NMBasicManager.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		980BF1CD1FDD280E00C760B9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 980BF1B91FDD280E00C760B9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 980BF1C11FDD280E00C760B9;
-			remoteInfo = NMBasic;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		142FBC7907D65D7155C4EE07 /* Pods-NMBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-NMBasic/Pods-NMBasic.release.xcconfig"; sourceTree = "<group>"; };
 		980BF1C21FDD280E00C760B9 /* NMBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NMBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		980BF1C51FDD280E00C760B9 /* NMBasic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBasic.h; sourceTree = "<group>"; };
 		980BF1C61FDD280E00C760B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		980BF1CB1FDD280E00C760B9 /* NMBasicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NMBasicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		980BF1D01FDD280E00C760B9 /* NMBasicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMBasicTests.swift; sourceTree = "<group>"; };
 		980BF1D21FDD280E00C760B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9844EF6D20444F9E000AB55D /* BasicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicManager.swift; sourceTree = "<group>"; };
@@ -279,14 +265,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		980BF1C81FDD280E00C760B9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				980BF1CC1FDD280E00C760B9 /* NMBasic.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -314,7 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				980BF1C21FDD280E00C760B9 /* NMBasic.framework */,
-				980BF1CB1FDD280E00C760B9 /* NMBasicTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -721,24 +698,6 @@
 			productReference = 980BF1C21FDD280E00C760B9 /* NMBasic.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		980BF1CA1FDD280E00C760B9 /* NMBasicTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 980BF1D91FDD280E00C760B9 /* Build configuration list for PBXNativeTarget "NMBasicTests" */;
-			buildPhases = (
-				980BF1C71FDD280E00C760B9 /* Sources */,
-				980BF1C81FDD280E00C760B9 /* Frameworks */,
-				980BF1C91FDD280E00C760B9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				980BF1CE1FDD280E00C760B9 /* PBXTargetDependency */,
-			);
-			name = NMBasicTests;
-			productName = NMBasicTests;
-			productReference = 980BF1CB1FDD280E00C760B9 /* NMBasicTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -752,10 +711,6 @@
 					980BF1C11FDD280E00C760B9 = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
-					};
-					980BF1CA1FDD280E00C760B9 = {
-						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -773,7 +728,6 @@
 			projectRoot = "";
 			targets = (
 				980BF1C11FDD280E00C760B9 /* NMBasic */,
-				980BF1CA1FDD280E00C760B9 /* NMBasicTests */,
 			);
 		};
 /* End PBXProject section */
@@ -785,13 +739,6 @@
 			files = (
 				9844F06A20444F9F000AB55D /* Assets.xcassets in Resources */,
 				9844F06C20444F9F000AB55D /* LocationPicker.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		980BF1C91FDD280E00C760B9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,24 +902,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		980BF1C71FDD280E00C760B9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				980BF1D11FDD280E00C760B9 /* NMBasicTests.swift in Sources */,
-				98B712351FDD29F0005E0659 /* NMBasicManager.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		980BF1CE1FDD280E00C760B9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 980BF1C11FDD280E00C760B9 /* NMBasic */;
-			targetProxy = 980BF1CD1FDD280E00C760B9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		980BF1D41FDD280E00C760B9 /* Debug */ = {
@@ -1116,7 +1046,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1144,44 +1074,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		980BF1DA1FDD280E00C760B9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Z85UG7B69;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/NMBasic/Frameworks",
-				);
-				INFOPLIST_FILE = NMBasicTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nahla.NMBasicTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		980BF1DB1FDD280E00C760B9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Z85UG7B69;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/NMBasic/Frameworks",
-				);
-				INFOPLIST_FILE = NMBasicTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nahla.NMBasicTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1204,15 +1096,6 @@
 			buildConfigurations = (
 				980BF1D71FDD280E00C760B9 /* Debug */,
 				980BF1D81FDD280E00C760B9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		980BF1D91FDD280E00C760B9 /* Build configuration list for PBXNativeTarget "NMBasicTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				980BF1DA1FDD280E00C760B9 /* Debug */,
-				980BF1DB1FDD280E00C760B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

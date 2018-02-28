@@ -15,11 +15,11 @@ public extension String    {
         if self.isEmpty {
             return false
         }
-        let tagschemes: [String] = [NSLinguisticTagSchemeLanguage]
+        let tagschemes = [NSLinguisticTagScheme.language]
         let tagger: NSLinguisticTagger = NSLinguisticTagger(tagSchemes: tagschemes, options: 0)
         tagger.string = self
         
-        let language: String? = tagger.tag(at: 0, scheme: NSLinguisticTagSchemeLanguage, tokenRange: nil, sentenceRange: nil)
+        let language: String? = tagger.tag(at: 0, scheme: NSLinguisticTagScheme.language, tokenRange: nil, sentenceRange: nil).map { $0.rawValue }
         print("[BF] :  \(language ?? "no lang")")
         return (language == "ar")
     }

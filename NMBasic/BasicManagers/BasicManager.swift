@@ -95,7 +95,7 @@ open class BasicManager: NSObject {
         var errorDetail: [AnyHashable: Any] = [AnyHashable: Any]()
         errorDetail[NSLocalizedDescriptionKey] = errorMessage
         let code: CFNetworkErrors = CFNetworkErrors.cfurlErrorNotConnectedToInternet
-        let errorIntance: NSError = NSError(domain: BasicManager.ErrorDomain, code: Int(code.rawValue), userInfo: errorDetail)
+        let errorIntance: NSError = NSError(domain: BasicManager.ErrorDomain, code: Int(code.rawValue), userInfo: errorDetail as? [String : Any])
         return errorIntance
     }
     

@@ -61,7 +61,7 @@ open class BasicUITableViewController: UITableViewController, UIGestureRecognize
         self.dismiss(animated: true, completion: nil)
     }
     
-    open func back() {
+    @objc open func back() {
         
         if self.navigationController?.popViewController(animated: true) == nil {
             self.navigationController?.dismiss(animated: true, completion: nil)

@@ -13,7 +13,7 @@ public extension UILabel {
     
     public func alignTop() {
         let boundingRectSize: CGSize = CGSize(width: self.frame.size.width, height: CGFloat.greatestFiniteMagnitude)
-        let attributes: [String : AnyObject] = [NSFontAttributeName: self.font]
+        let attributes = [NSAttributedStringKey.font: self.font ?? UIFont.systemFont(ofSize: 10)]
         
         let labelSize: CGRect = self.text!.boundingRect(with: boundingRectSize, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], attributes: attributes, context: nil)
         let height:Float = Float(labelSize.size.height)
@@ -27,7 +27,7 @@ public extension UILabel {
     
     public func alignBottom() {
         let boundingRectSize: CGSize = CGSize(width: self.frame.size.width, height: CGFloat.greatestFiniteMagnitude)
-        let attributes: [String : AnyObject] = [NSFontAttributeName: self.font]
+        let attributes = [NSAttributedStringKey.font: self.font ?? UIFont.systemFont(ofSize: 10)]
         
         let labelSize: CGRect = self.text!.boundingRect(with: boundingRectSize, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], attributes: attributes, context: nil)
         let height:Float = Float(labelSize.size.height)

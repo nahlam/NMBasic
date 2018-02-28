@@ -23,7 +23,7 @@ open class CommunicationManager: NSObject {
             messageController.recipients = recipents
             messageController.body = body
             DispatchQueue.main.async {
-                UIViewController.topMostViewController().present(messageController, animated: true, completion: { _ in })
+                UIViewController.topMostViewController().present(messageController, animated: true, completion: nil)
             }
         }
     }
@@ -57,10 +57,10 @@ open class CommunicationManager: NSObject {
         }
         DispatchQueue.main.async {
             if viewController != nil {
-                viewController?.present(activityController, animated: true, completion: { _ in })
+                viewController?.present(activityController, animated: true, completion:nil)
             }else {
                 let navigation =  UIViewController.currentViewController()
-                navigation.present(activityController, animated: true, completion: { _ in })
+                navigation.present(activityController, animated: true, completion: nil)
                 
             }
             
