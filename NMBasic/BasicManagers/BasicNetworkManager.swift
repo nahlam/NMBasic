@@ -121,7 +121,7 @@ open class BasicNetworkManager: BasicManager {
             DispatchQueue.global(qos: .background).async {
                 switch response.result {
                 case .success:
-                    let value = response.result.value as? [String: AnyObject]
+                    let value = JSON(response.result.value)
                     self.handleSuccessResponse(requestURL: stringURL, request: response.request, response: value, handleDefaultResponse: handleDefaultResponse, handler: handler)
                     return
                 case .failure(let error):
@@ -146,7 +146,7 @@ open class BasicNetworkManager: BasicManager {
         return parameterArray.joined(separator: "&")
     }
     
-    private class func handleSuccessResponse(requestURL:String, request: URLRequest?, response: [String: AnyObject]? , handleDefaultResponse: Bool, handler: @escaping APIRequestCompletionHandlerClosureType) {
+    private class func handleSuccessResponse(requestURL:String, request: URLRequest?, response: JSON? , handleDefaultResponse: Bool, handler: @escaping APIRequestCompletionHandlerClosureType) {
         
         
         #if DEBUG
@@ -172,7 +172,7 @@ open class BasicNetworkManager: BasicManager {
                 #endif
                 
                 
-                if let returnValue = response![BasicNetworkManager.Contants.Response.ReponseJSON] {
+                if let returnValue = response?[BasicNetworkManager.Contants.Response.ReponseJSON] {
                     let jsonValue:JSON = JSON(returnValue)
                     
                     if jsonValue.type == .null || jsonValue.type == .unknown {
@@ -193,7 +193,7 @@ open class BasicNetworkManager: BasicManager {
                     
                 }else if response![BasicNetworkManager.Contants.Response.Error] != nil {
                     
-                    let errorJSON:JSON = JSON(response![BasicNetworkManager.Contants.Response.Error]!)
+                    let errorJSON:JSON = JSON(response![BasicNetworkManager.Contants.Response.Error])
                     if errorJSON.type == .null || errorJSON.type == .unknown {
                         #if DEBUG
                             print("Response : GENERAL ERROR")
