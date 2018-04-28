@@ -146,7 +146,7 @@ open class BasicNetworkManager: BasicManager {
         return parameterArray.joined(separator: "&")
     }
     
-    private class func handleSuccessResponse(requestURL:String, request: URLRequest?, response: JSON? , handleDefaultResponse: Bool, handler: @escaping APIRequestCompletionHandlerClosureType) {
+    open class func handleSuccessResponse(requestURL:String, request: URLRequest?, response: JSON? , handleDefaultResponse: Bool, handler: @escaping APIRequestCompletionHandlerClosureType) {
         
         
         #if DEBUG
@@ -237,7 +237,7 @@ open class BasicNetworkManager: BasicManager {
         
     }
     
-    private class func handleFailureResponse(requestURL:String, request: URLRequest?, error: Error? , handler: @escaping APIRequestCompletionHandlerClosureType) {
+    open class func handleFailureResponse(requestURL:String, request: URLRequest?, error: Error? , handler: @escaping APIRequestCompletionHandlerClosureType) {
         #if DEBUG
             print("#########################################")
             print("Error Response: \(error?.localizedDescription ?? "")")
