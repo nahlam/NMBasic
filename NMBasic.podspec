@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NMBasic'
-  s.version          = '2.0.0'
+  s.version          = '2.0.1'
   s.summary          = 'Managing All Basic Features Like Basic Object, Basic Manager, Basic Network Manager and Basic DB Manager'
   s.homepage         = 'https://github.com/nahlam/NMBasic'
   s.description      = 'Managing All Basic Features Like Basic Object, Basic Manager, Basic Network Manager and Basic DB Manager. Add All needed functiona;ity to setup our organization projects.'
