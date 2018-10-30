@@ -1,0 +1,210 @@
+{
+  "name": "NMBasic",
+  "version": "2.0.0",
+  "summary": "Managing All Basic Features Like Basic Object, Basic Manager, Basic Network Manager and Basic DB Manager",
+  "homepage": "https://github.com/nahlam/NMBasic",
+  "description": "Managing All Basic Features Like Basic Object, Basic Manager, Basic Network Manager and Basic DB Manager. Add All needed functiona;ity to setup our organization projects.",
+  "license": "Simplified BSD license",
+  "authors": {
+    "Nahla Mortada": "nahla.mortada@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/nahlam/NMBasic.git",
+    "tag": "2.0.0"
+  },
+  "source_files": "NMBasic/Classes/*.swift",
+  "resources": [
+    "NMBasic/Assets/**/*"
+  ],
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "dependencies": {
+    "GeneralLocalization": [
+      "~> 2.0.0"
+    ]
+  },
+  "swift_version": "4.2",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s",
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "requires_arc": true,
+  "resource_bundles": {
+    "BFLocationBundle": [
+      "NMBasic/Assets/**/*"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "BasicExtentions",
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit",
+          "GameplayKit",
+          "CoreTelephony"
+        ]
+      },
+      "dependencies": {
+        "libPhoneNumber-iOS": [
+          "~> 0.9.13"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Collections",
+          "source_files": "NMBasic/Classes/BasicExtentions/Collections/*.swift"
+        },
+        {
+          "name": "Math",
+          "source_files": "NMBasic/Classes/BasicExtentions/Math/*.swift"
+        },
+        {
+          "name": "String",
+          "source_files": "NMBasic/Classes/BasicExtentions/String/*.{swift,h,m}"
+        },
+        {
+          "name": "UIButton",
+          "source_files": "NMBasic/Classes/BasicExtentions/UIButton/*.swift"
+        },
+        {
+          "name": "UIComponents",
+          "source_files": "NMBasic/Classes/BasicExtentions/UIComponents/*.swift"
+        },
+        {
+          "name": "UIImage",
+          "source_files": "NMBasic/Classes/BasicExtentions/UIImage/*.{swift,h,m}"
+        },
+        {
+          "name": "UIImageView",
+          "source_files": "NMBasic/Classes/BasicExtentions/UIImageView/*.swift"
+        },
+        {
+          "name": "UILabel",
+          "source_files": "NMBasic/Classes/BasicExtentions/UILabel/*.swift"
+        },
+        {
+          "name": "UIView",
+          "source_files": "NMBasic/Classes/BasicExtentions/UIView/*.swift"
+        },
+        {
+          "name": "UIViewControllers",
+          "source_files": "NMBasic/Classes/BasicExtentions/UIViewControllers/*.swift"
+        },
+        {
+          "name": "Other",
+          "source_files": "NMBasic/Classes/BasicExtentions/Other/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "BasicObjects",
+      "source_files": "NMBasic/Classes/BasicObjects/*.swift",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "dependencies": {
+        "SwiftyJSON": [
+          "~> 4.2.0"
+        ]
+      }
+    },
+    {
+      "name": "BasicManagers",
+      "source_files": "NMBasic/Classes/BasicManagers/*.swift",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "dependencies": {
+        "Alamofire": [
+          "~> 4.7.3"
+        ],
+        "SwiftyJSON": [
+          "~> 4.2.0"
+        ],
+        "Kingfisher": [
+          "~> 4.10.0"
+        ],
+        "Reachability": [
+          "~> 3.2"
+        ],
+        "SBJson4": [
+          "~> 4.0.5"
+        ],
+        "FMDB": [
+          "~> 2.7.2"
+        ],
+        "MRProgress": [
+          "~> 0.8.3"
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "source_files": "NMBasic/Classes/Modules/Location/*.swift",
+      "ios": {
+        "frameworks": "MapKit"
+      }
+    },
+    {
+      "name": "BasicUIControllers",
+      "source_files": "NMBasic/Classes/BasicUIControllers/*.swift",
+      "ios": {
+        "frameworks": "UIKit"
+      }
+    },
+    {
+      "name": "CustomViews",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "dependencies": {
+        "Kingfisher": [
+          "~> 4.10.0"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Buttons",
+          "source_files": "NMBasic/Classes/CustomViews/Buttons/*.swift"
+        },
+        {
+          "name": "ImageViews",
+          "source_files": "NMBasic/Classes/CustomViews/ImageViews/*.swift"
+        },
+        {
+          "name": "Labels",
+          "source_files": "NMBasic/Classes/CustomViews/Labels/*.swift"
+        },
+        {
+          "name": "LoadingIndicators",
+          "source_files": "NMBasic/Classes/CustomViews/LoadingIndicators/*.swift"
+        },
+        {
+          "name": "Navigation",
+          "source_files": "NMBasic/Classes/CustomViews/Navigation/*.swift"
+        },
+        {
+          "name": "TextView",
+          "source_files": "NMBasic/Classes/CustomViews/TextView/*.swift"
+        },
+        {
+          "name": "Views",
+          "source_files": "NMBasic/Classes/CustomViews/Views/*.swift"
+        },
+        {
+          "name": "ViewButton",
+          "source_files": "NMBasic/Classes/CustomViews/ViewButton/*.swift"
+        },
+        {
+          "name": "Others",
+          "source_files": "NMBasic/Classes/CustomViews/Others/*.swift"
+        }
+      ]
+    }
+  ]
+}

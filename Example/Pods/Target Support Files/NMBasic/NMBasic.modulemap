@@ -1,0 +1,6 @@
+framework module NMBasic {
+  umbrella header "NMBasic-umbrella.h"
+
+  export *
+  module * { export * }
+}

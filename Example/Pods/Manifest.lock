@@ -1,0 +1,185 @@
+PODS:
+  - Alamofire (4.7.3)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - GeneralLocalization (2.0.0)
+  - Kingfisher (4.10.0)
+  - libPhoneNumber-iOS (0.9.13)
+  - MRProgress (0.8.3):
+    - MRProgress/ActivityIndicator (= 0.8.3)
+    - MRProgress/Blur (= 0.8.3)
+    - MRProgress/Circular (= 0.8.3)
+    - MRProgress/Icons (= 0.8.3)
+    - MRProgress/NavigationBarProgress (= 0.8.3)
+    - MRProgress/Overlay (= 0.8.3)
+  - MRProgress/ActivityIndicator (0.8.3):
+    - MRProgress/Stopable
+  - MRProgress/Blur (0.8.3):
+    - MRProgress/Helper
+  - MRProgress/Circular (0.8.3):
+    - MRProgress/Helper
+    - MRProgress/ProgressBaseClass
+    - MRProgress/Stopable
+  - MRProgress/Helper (0.8.3)
+  - MRProgress/Icons (0.8.3)
+  - MRProgress/NavigationBarProgress (0.8.3):
+    - MRProgress/ProgressBaseClass
+  - MRProgress/Overlay (0.8.3):
+    - MRProgress/ActivityIndicator
+    - MRProgress/Blur
+    - MRProgress/Circular
+    - MRProgress/Helper
+    - MRProgress/Icons
+  - MRProgress/ProgressBaseClass (0.8.3)
+  - MRProgress/Stopable (0.8.3):
+    - MRProgress/Helper
+  - NMBasic (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - NMBasic/BasicExtentions (= 2.0.0)
+    - NMBasic/BasicManagers (= 2.0.0)
+    - NMBasic/BasicObjects (= 2.0.0)
+    - NMBasic/BasicUIControllers (= 2.0.0)
+    - NMBasic/CustomViews (= 2.0.0)
+    - NMBasic/Location (= 2.0.0)
+  - NMBasic/BasicExtentions (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+    - NMBasic/BasicExtentions/Collections (= 2.0.0)
+    - NMBasic/BasicExtentions/Math (= 2.0.0)
+    - NMBasic/BasicExtentions/Other (= 2.0.0)
+    - NMBasic/BasicExtentions/String (= 2.0.0)
+    - NMBasic/BasicExtentions/UIButton (= 2.0.0)
+    - NMBasic/BasicExtentions/UIComponents (= 2.0.0)
+    - NMBasic/BasicExtentions/UIImage (= 2.0.0)
+    - NMBasic/BasicExtentions/UIImageView (= 2.0.0)
+    - NMBasic/BasicExtentions/UILabel (= 2.0.0)
+    - NMBasic/BasicExtentions/UIView (= 2.0.0)
+    - NMBasic/BasicExtentions/UIViewControllers (= 2.0.0)
+  - NMBasic/BasicExtentions/Collections (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/Math (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/Other (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/String (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/UIButton (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/UIComponents (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/UIImage (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/UIImageView (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/UILabel (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/UIView (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicExtentions/UIViewControllers (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - libPhoneNumber-iOS (~> 0.9.13)
+  - NMBasic/BasicManagers (2.0.0):
+    - Alamofire (~> 4.7.3)
+    - FMDB (~> 2.7.2)
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+    - MRProgress (~> 0.8.3)
+    - Reachability (~> 3.2)
+    - SBJson4 (~> 4.0.5)
+    - SwiftyJSON (~> 4.2.0)
+  - NMBasic/BasicObjects (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - SwiftyJSON (~> 4.2.0)
+  - NMBasic/BasicUIControllers (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+  - NMBasic/CustomViews (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+    - NMBasic/CustomViews/Buttons (= 2.0.0)
+    - NMBasic/CustomViews/ImageViews (= 2.0.0)
+    - NMBasic/CustomViews/Labels (= 2.0.0)
+    - NMBasic/CustomViews/LoadingIndicators (= 2.0.0)
+    - NMBasic/CustomViews/Navigation (= 2.0.0)
+    - NMBasic/CustomViews/Others (= 2.0.0)
+    - NMBasic/CustomViews/TextView (= 2.0.0)
+    - NMBasic/CustomViews/ViewButton (= 2.0.0)
+    - NMBasic/CustomViews/Views (= 2.0.0)
+  - NMBasic/CustomViews/Buttons (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/CustomViews/ImageViews (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/CustomViews/Labels (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/CustomViews/LoadingIndicators (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/CustomViews/Navigation (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/CustomViews/Others (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/CustomViews/TextView (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/CustomViews/ViewButton (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/CustomViews/Views (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+    - Kingfisher (~> 4.10.0)
+  - NMBasic/Location (2.0.0):
+    - GeneralLocalization (~> 2.0.0)
+  - Reachability (3.2)
+  - SBJson4 (4.0.5)
+  - SwiftyJSON (4.2.0)
+
+DEPENDENCIES:
+  - NMBasic (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - FMDB
+    - Kingfisher
+    - libPhoneNumber-iOS
+    - MRProgress
+    - Reachability
+    - SBJson4
+    - SwiftyJSON
+  https://github.com/nahlam/Specs.git:
+    - GeneralLocalization
+
+EXTERNAL SOURCES:
+  NMBasic:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  GeneralLocalization: 7818dab123db2ec5ff4b6fcabe742f6cb13bde5d
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
+  libPhoneNumber-iOS: e444379ac18bbfbdefad571da735b2cd7e096caa
+  MRProgress: 16de7cc9f347e8846797a770db102a323fe7ef09
+  NMBasic: 121198310212171bae3f6bd2d786c4e8f0c6652d
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SBJson4: e1aa705a4104e83fd250420709a57de5efae96ff
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+
+PODFILE CHECKSUM: 41c4fb5cacbc858d34f4d04d925cb1f4e62cbf2d
+
+COCOAPODS: 1.5.3
